@@ -9,21 +9,23 @@ public class BubbleSort {
 	public static void main(String[] args) {
 		int[] unsortedArray = {9,5,7,5,4};
 		Logger log = Logger.getLogger(BubbleSort.class.getName());
-		
+
 		doBubblesort(unsortedArray);
 		for(int i: unsortedArray) {
 			StringBuilder logMessage = new StringBuilder();
 			logMessage.append(i);
 			logMessage.append("\n");
-			log.log(Level.INFO, logMessage.toString());
-	
+			if(log.isLoggable(Level.INFO)){
+				log.log(Level.INFO, logMessage.toString());
+			}
+
 		}
-		
+
 	}
 
 	private static void doBubblesort(int[] unsortedArray) {
 		boolean keepGoing = true;
-		
+
 		while(keepGoing) {
 			keepGoing = false;
 			for(int i = 0; i<unsortedArray.length-1;i++) {
@@ -38,7 +40,7 @@ public class BubbleSort {
 				}
 			}
 		}
-		
+
 	}
 
 }
