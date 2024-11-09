@@ -1,13 +1,17 @@
 package arrays;
 
+import java.util.logging.Logger;
+
 public class BubbleSort {
+
 
 	public static void main(String[] args) {
 		int[] unsortedArray = {9,5,7,5,4};
+		Logger log = Logger.getLogger(BubbleSort.class.getName());
 		
 		doBubblesort(unsortedArray);
 		for(int i: unsortedArray) {
-			System.out.print(i);
+			log.info(i + "\n");
 		}
 		
 	}
