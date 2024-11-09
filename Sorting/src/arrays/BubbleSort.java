@@ -1,5 +1,6 @@
 package arrays;
 
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class BubbleSort {
@@ -14,7 +15,8 @@ public class BubbleSort {
 			StringBuilder logMessage = new StringBuilder();
 			logMessage.append(i);
 			logMessage.append("\n");
-			log.info(logMessage.toString());
+			log.log(Level.INFO, logMessage.toString());
+	
 		}
 		
 	}
