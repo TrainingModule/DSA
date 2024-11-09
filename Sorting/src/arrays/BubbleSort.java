@@ -11,7 +11,10 @@ public class BubbleSort {
 		
 		doBubblesort(unsortedArray);
 		for(int i: unsortedArray) {
-			log.info(i + "\n");
+			StringBuilder logMessage = new StringBuilder();
+			logMessage.append(i);
+			logMessage.append("\n");
+			log.info(logMessage.toString());
 		}
 		
 	}
