@@ -2,10 +2,12 @@ package utilities;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 public class GetValues {
+
+	public GetValues() {
+		super();
+	}
 
 	public static int[] getArrayFromUser(Logging log) {
 		Scanner scanner = new Scanner(System.in);
@@ -19,7 +21,8 @@ public class GetValues {
 
 	private static int getArraySize(Scanner scanner, Logging log) {
 		int size = 0;
-		while (true) {
+		boolean repeat = true;
+		while (repeat) {
 			log.print("Enter the number of elements in the array: ");
 			try {
 				size = scanner.nextInt();
@@ -27,7 +30,7 @@ public class GetValues {
 					log.print("Size must be a positive integer. Try again.");
 					continue;
 				}
-				break;
+				repeat = false;
 			} catch (InputMismatchException e) {
 				log.print("Invalid input! Please enter a valid integer for the array size.");
 				scanner.next(); // Clear the invalid input
