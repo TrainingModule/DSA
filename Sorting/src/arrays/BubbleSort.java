@@ -1,45 +1,59 @@
 package arrays;
 
-import java.util.logging.Level;
-import java.util.logging.Logger;
+import java.util.Arrays;
+
+import utilities.GetValues;
+import utilities.Logging;
 
 public class BubbleSort {
 
-
+	/**
+	 * @param args
+	 */
 	public static void main(String[] args) {
-		int[] unsortedArray = {9,5,7,5,4};
-		Logger log = Logger.getLogger(BubbleSort.class.getName());
+		Logging log = new Logging(BubbleSort.class.getName());
+		int[] unsortedArray = GetValues.getArrayFromUser(log);
+		log.info("Before sorting \n");
+		log.info(Arrays.toString(unsortedArray));
 
-		doBubblesort(unsortedArray);
-		for(int i: unsortedArray) {
-			StringBuilder logMessage = new StringBuilder();
-			logMessage.append(i);
-			logMessage.append("\n");
-			if(log.isLoggable(Level.INFO)){
-				log.log(Level.INFO, logMessage.toString());
+		doBubblesort(unsortedArray, log);
+
+		log.info("After sorting: \n");
+		log.info(Arrays.toString(unsortedArray));
+	}
+
+	/**
+	 * @param unsortedArray
+	 * @param log
+	 */
+	private static void doBubblesort(int[] unsortedArray, Logging log) {
+		boolean swapped;
+
+		for (int i = 0; i < unsortedArray.length - 1; i++) {
+			swapped = false;
+			for (int j = 0; j < unsortedArray.length - 1 - i; j++) {
+
+				if (unsortedArray[j] > unsortedArray[j + 1]) {
+					swapValues(unsortedArray, j, j + 1);
+					swapped = true;
+				}
 			}
 
+			if (!swapped)
+				break;
 		}
 
 	}
 
-	private static void doBubblesort(int[] unsortedArray) {
-		boolean keepGoing = true;
-
-		while(keepGoing) {
-			keepGoing = false;
-			for(int i = 0; i<unsortedArray.length-1;i++) {
-				if(i == unsortedArray.length-1) {
-					continue;
-				}
-				if(unsortedArray[i]>unsortedArray[i+1]) {
-					int temp = unsortedArray[i+1];
-					unsortedArray[i+1] = unsortedArray[i];
-					unsortedArray[i] = temp;
-					keepGoing = true;
-				}
-			}
-		}
+	/**
+	 * @param unsortedArray
+	 * @param i
+	 * @param j
+	 */
+	private static void swapValues(int[] unsortedArray, int i, int j) {
+		int temp = unsortedArray[j];
+		unsortedArray[j] = unsortedArray[i];
+		unsortedArray[i] = temp;
 
 	}
 
