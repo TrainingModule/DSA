@@ -5,8 +5,8 @@ import java.util.Scanner;
 
 public class GetValues {
 
-	public GetValues() {
-		super();
+	private GetValues() {
+		//not called.
 	}
 
 	public static int[] getArrayFromUser(Logging log) {
