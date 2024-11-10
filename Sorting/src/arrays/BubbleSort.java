@@ -16,7 +16,7 @@ public class BubbleSort {
 		log.info("Before sorting \n");
 		log.info(Arrays.toString(unsortedArray));
 
-		doBubblesort(unsortedArray, log);
+		doBubblesort(unsortedArray);
 
 		log.info("After sorting: \n");
 		log.info(Arrays.toString(unsortedArray));
@@ -26,7 +26,7 @@ public class BubbleSort {
 	 * @param unsortedArray
 	 * @param log
 	 */
-	private static void doBubblesort(int[] unsortedArray, Logging log) {
+	private static void doBubblesort(int[] unsortedArray) {
 		boolean swapped;
 
 		for (int i = 0; i < unsortedArray.length - 1; i++) {
